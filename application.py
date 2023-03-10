@@ -5,8 +5,7 @@ import pandas as pd
 from spotipy.oauth2 import SpotifyClientCredentials
 import spotipy
 from datetime import datetime
-cid = '7cda6c1856a24d109ba5521fd35fd5a3'
-secret = 'ac6d7cd270aa48cab17e179262d78031'
+
 application = Flask(__name__) #Initialize the flask App
 model = pickle.load(open('model.pkl', 'rb'))
 
