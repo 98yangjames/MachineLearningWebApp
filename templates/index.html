@@ -13,21 +13,43 @@
 </head>
 
 <body>
-  <table>
-    <tr>
-        {% for col in column_names %}
-        <th>{{col}}</th>
-        {% endfor %}
-    </tr>
-    {% for row in row_data %}
-    <tr>
-        {% for col, row_ in zip(column_names, row) %}
-        
-        <td>{{row_}}</td>
-        {% endfor %}
-    </tr>
-    {% endfor %}
+ <div class="login">
+	<h1>How many times would James listen to your songs in your Spotify Playlist?</h1>
+  <body>Insert a spotify link with a list of songs to find out</body>
 
-  </table>
+     <!-- Main Input For Receiving Query to our ML -->
+    <form action="{{ url_for('predict')}}"method="post">
+    	<input type="text" name="experience" placeholder="Playlist link" required="required" />
+        <!-- <input type="text" name="test_score" placeholder="Artist name" required="required" /> -->
+		<!-- <input type="text" name="interview_score" placeholder="Interview Score" required="required" /> -->
+
+        <button type="submit" class="btn btn-primary btn-block btn-large">Predict</button>
+    </form>
+  </body>
+  <br>
+  <br>
+   <!-- {{ prediction_text }} -->
+   <body>
+    <table>
+      <tr>
+          {% for col in column_names %}
+          <th>{{col}}</th>
+          {% endfor %}
+      </tr>
+      {% for row in row_data %}
+      <tr>
+          {% for col, row_ in zip(column_names, row) %}
+          
+          <td>{{row_}}</td>
+          {% endfor %}
+      </tr>
+      {% endfor %}
+  
+    </table>
+  </body>
+
+ </div>
+
+
 </body>
 </html>
