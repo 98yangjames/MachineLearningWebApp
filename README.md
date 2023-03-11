@@ -25,6 +25,8 @@ This would create a serialized version of our model into a file model.pkl
 ```
 python app.py
 ```
+If you are getting the message "Need to get your CID and Secret from Spotify API first! https://developer.spotify.com/dashboard/", please go to the dashboard and get your unique CID and secret values. 
+
 By default, flask will run on port 5000.
 
 3. Navigate to URL http://127.0.0.1:5000/ (or) http://localhost:5000
