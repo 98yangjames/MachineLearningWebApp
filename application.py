@@ -7,8 +7,8 @@ import spotipy
 from datetime import datetime
 # import warnings
 # warnings.filterwarnings("ignore")
-cid = '7cda6c1856a24d109ba5521fd35fd5a3'
-secret = 'ac6d7cd270aa48cab17e179262d78031'
+cid = None
+secret = None
 application = Flask(__name__) #Initialize the flask App
 model = pickle.load(open('model.pkl', 'rb'))
 
@@ -88,6 +88,7 @@ def predict():
     prediction_df = pd.DataFrame()
     prediction_df['Count'] = predictions.round(2)
     prediction_df['trackName'] = list(stats['trackName'])
+    
     # prediction_df['trackName'] = stats['trackName']
     prediction_df = prediction_df.sort_values('Count', ascending=False)
     prediction_df.rename(columns = {'trackName':'Track Name'}, inplace=True)
@@ -95,4 +96,7 @@ def predict():
     return render_template('index.html', row_data=list(prediction_df.values.tolist()), column_names=prediction_df.columns.values, tables=[prediction_df.to_html(classes='data')], titles=prediction_df.columns.values, zip=zip)
 
 if __name__ == "__main__":
-    application.run(debug=True)
+    if cid and secret:
+        application.run(debug=True)
+    else:
+        print("Need to get your CID and Secret from Spotify API first! https://developer.spotify.com/dashboard/")
