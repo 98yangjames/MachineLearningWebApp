@@ -9,9 +9,9 @@ conda install flask=0.12.2  (or) pip install Flask==0.12.2
 
 ### Project Structure
 This project has four major parts :
-1. model.py - This contains code fot our Machine Learning model to predict employee salaries absed on trainign data in 'hiring.csv' file.
-2. app.py - This contains Flask APIs that receives employee details through GUI or API calls, computes the precited value based on our model and returns it.
-3. template - This folder contains the HTML template (index.html) to allow user to enter employee detail and displays the predicted employee salary.
+1. model.py - This contains code for our Machine Learning Random Forest model that predicts the number of times I would listen to a song.
+2. application.py - This contains Flask APIs that receives employee details through GUI or API calls, computes the precited value based on our model and returns it.
+3. template - This folder contains the HTML template (index.html) to allow user to enter Spotify Playlist Link to output the song plays on each of the songs (rounded, so it won't show all songs if it is less than 1).
 4. static - This folder contains the css folder with style.css file which has the styling required for out index.html file.
 
 ### Running the project
